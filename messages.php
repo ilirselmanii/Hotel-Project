@@ -61,3 +61,113 @@ if(!isset($_SESSION["user"]))
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
+                <li>
+                        <a href="home.php"><i class="fa fa-dashboard"></i> Status</a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="messages.php"><i class="fa fa-desktop"></i> News Letters</a>
+                    </li>
+					<li>
+                        <a href="roombook.php"><i class="fa fa-bar-chart-o"></i>Room Booking</a>
+                    </li>
+                    <li>
+                        <a href="Payment.php"><i class="fa fa-qrcode"></i> Payment</a>
+                    </li>
+                    <li>
+                        <a  href="profit.php"><i class="fa fa-qrcode"></i> Profit</a>
+                    </li>
+                    <li>
+                        <a href="logout.php" ><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                    
+
+
+                    
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+			 <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                           News letters<small> panel</small>
+                        </h1>
+                    </div>
+                </div> 
+                 <!-- /. ROW  -->
+				 <?php
+				include('db.php');
+				$mail = "SELECT * FROM `contact`";
+				$rew = mysqli_query($con,$mail);
+				
+			   ?>
+				 <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron">
+                        <h3>Send The News Letters to Followers</h3>
+						<?php
+						while($rows = mysqli_fetch_array($rew))
+						{
+								$app=$rows['approval'];
+								if($app=="Allowed")
+								{
+									
+								}
+						}
+						?>
+                        <p></p>
+                        <p>
+						<div class="panel-body">
+                            <button class="btn btn-primary btn" data-toggle="modal" data-target="#myModal">
+                              Send New News Letters
+                            </button>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Compose News Letter</h4>
+                                        </div>
+										<form method="post">
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                            <label>Title</label>
+                                            <input name="title" class="form-control" placeholder="Enter Title">
+											</div>
+										</div>
+										<div class="modal-body">
+                                            <div class="form-group">
+                                            <label>Subject</label>
+                                            <input name="subject" class="form-control" placeholder="Enter Subject">
+											</div>
+                                        </div>
+										<div class="modal-body">
+										<div class="form-group">
+										  <label for="comment">News</label>
+										  <textarea name="news" class="form-control" rows="5" id="comment"></textarea>
+										</div>
+										 </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											
+                                           <input type="submit" name="log" value="Send" class="btn btn-primary">
+										  </form>
+										   
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+							<?php
+							if(isset($_POST['log']))
+							{	
+								$log ="INSERT INTO `newsletterlog`(`title`, `subject`, `news`) VALUES ('$_POST[title]','$_POST[subject]','$_POST[news]')";
+								if(mysqli_query($con,$log))
+								{
+									echo '<script>alert("New Room Added") </script>' ;
+											
+								}
+								
+							}
