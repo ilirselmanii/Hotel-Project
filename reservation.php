@@ -107,5 +107,63 @@ include('db.php')
                         
                     </div>
                 </div>
+                <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            RESERVATION INFORMATION
+                        </div>
+                        <div class="panel-body">
+								<div class="form-group">
+                                            <label>Type Of Room *</label>
+                                            <select name="troom"  class="form-control" required>
+												<option value selected ></option>
+                                                <option value="Superior Room">SUPERIOR ROOM</option>
+                                                <option value="Deluxe Room">DELUXE ROOM</option>
+												<option value="Guest House">GUEST HOUSE</option>
+												<option value="Single Room">SINGLE ROOM</option>
+                                            </select>
+                              </div>
+							  <div class="form-group">
+                                            <label>Bedding Type</label>
+                                            <select name="bed" class="form-control" required>
+												<option value selected ></option>
+                                                <option value="Single">Single</option>
+                                                <option value="Double">Double</option>
+												<option value="Triple">Triple</option>
+                                                <option value="Quad">Quad</option>
+												<option value="None">None</option>
+                                                
+                                             
+                                            </select>
+                              </div>
+							  <div class="form-group">
+                                            <label>No.of Rooms *</label>
+                                            <select name="nroom" class="form-control" required>
+												<option value selected ></option>
+                                                <option value="1">1</option>
+                                              <!--  <option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option> -->
+                                            </select>
+                              </div>
+							 
+							 
+							  <div class="form-group">
+                                            <label>Meal Plan</label>
+                                            <select name="meal" class="form-control"required>
+												<option value selected ></option>
+                                                <option value="Room only">Room only</option>
+                                                <option value="Breakfast">Breakfast</option>
+												<option value="Half Board">Half Board</option>
+												<option value="Full Board">Full Board</option>
+												
+                                                
+                                             
+                                            </select>
+                              </div>
                 
                   
