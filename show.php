@@ -219,3 +219,61 @@ tr:hover .cut { opacity: 1; }
 					<th><span >Check out Date</span></th>
 					<td><span ><?php echo $cout_date; ?> </span></td>
 				</tr>
+                </table>
+			<table >
+					<tr> 
+						<td>Customer phone : -  <?php echo $phone; ?> </td>
+						
+						<td>Customer email : -  <?php echo $email; ?> </td>
+					</tr>
+					<tr> 
+						<td>Customer Country : -  <?php echo $country; ?> </td>
+						<td>Customer National : -  <?php echo $National; ?> </td>
+					</tr>
+				</table>
+				<br>
+				<br>
+			<table class="inventory">
+				<thead>
+					<tr>
+						<th><span >Item</span></th>
+						<th><span >No of Days</span></th>
+						
+					</tr>
+				</thead>
+				<tbody>
+				
+					<tr>
+						<td><span ><?php echo $room_type; ?></span></td>
+						<td><span ><?php echo $nodays; ?> </span></td>
+						
+					</tr>
+					<tr>
+						<td><span ><?php echo $Bed_type; ?>  Bed </span></td>
+						<td><span ><?php echo $nodays; ?></span></td>
+						
+					</tr>
+					<tr>
+						<td><span ><?php echo $meal_type; ?>  </span></td>
+						<td><span ><?php echo $nodays; ?></span></td>
+						
+					</tr>
+				</tbody>
+			</table>
+			
+			
+		</article>
+		<aside>
+			<h1><span >Contact us</span></h1>
+			<div >
+				<p align="center">Email :- info@sunrise.com || Web :- www.sunrise.com || Phone :- +94 65 222 44 55 </p>
+			</div>
+		</aside>
+	</body>
+</html>
+
+<?php 
+
+ob_end_flush();
+
+?>
