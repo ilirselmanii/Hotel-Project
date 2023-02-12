@@ -118,3 +118,104 @@ aside h1 { border-color: #999; border-bottom-style: solid; }
 	text-align: center;
 	width: 0.6em;
 }
+.add, .cut
+{
+	background: #9AF;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	background-image: -moz-linear-gradient(#00ADEE 5%, #0078A5 100%);
+	background-image: -webkit-linear-gradient(#00ADEE 5%, #0078A5 100%);
+	border-radius: 0.5em;
+	border-color: #0076A3;
+	color: #FFF;
+	cursor: pointer;
+	font-weight: bold;
+	text-shadow: 0 -1px 2px rgba(0,0,0,0.333);
+}
+
+.add { margin: -2.5em 0 0; }
+
+.add:hover { background: #00ADEE; }
+
+.cut { opacity: 0; position: absolute; top: 0; left: -1.5em; }
+.cut { -webkit-transition: opacity 100ms ease-in; }
+
+tr:hover .cut { opacity: 1; }
+
+@media print {
+	* { -webkit-print-color-adjust: exact; }
+	html { background: none; padding: 0; }
+	body { box-shadow: none; margin: 0; }
+	span:empty { display: none; }
+	.add, .cut { display: none; }
+}
+
+@page { margin: 0; }
+		</style>
+		
+	</head>
+	<body>
+	
+	
+	
+	
+	<?php
+	ob_start();	
+	include ('db.php');
+
+	$pid = $_GET['sid'];
+	
+	
+	
+	$sql ="select * from roombook where id = '$pid' ";
+	$re = mysqli_query($con,$sql);
+	while($row=mysqli_fetch_array($re))
+	{
+		$id = $row['id'];
+		$title =  $row['Title'];
+		$Fname = $row['FName'];
+		$lname = $row['LName'];
+		$email = $row['Email'];
+		$National = $row['National'];
+		$country = $row['Country'];
+		$phone = $row['Phone'];
+		$room_type = $row['TRoom'];
+		$Bed_type = $row['Bed'];
+		//$Noof_room = $row['Nroom'];
+		$meal_type = $row['Meal'];
+		$cin_date = $row['cin'];
+		$cout_date = $row['cout'];
+		$nodays = $row['nodays'];
+	
+	}
+	
+									
+	?>
+		<header>
+			<h1>Information of Guest</h1>
+			<address >
+				<p>SUN RISE HOTEL,</p>
+				<p>New Kalmunani Road,<br>Battialoa,<br>Sri Lanka.</p>
+				<p>(+94) 65 222 44 55</p>
+			</address>
+			<span><img alt="" src="assets/img/sun.png"></span>
+		</header>
+		<article>
+			<h1></h1>
+			<address >
+				
+				<p><br></p>
+				<p>Coustomer Name  : -  <?php echo $title.$Fname." ".$lname;?><br></p>
+			</address>
+			<table class="meta">
+				<tr>
+					<th><span >Customer ID</span></th>
+					<td><span ><?php echo $id; ?></span></td>
+				</tr>
+				<tr>
+					<th><span >Check in Date</span></th>
+					<td><span ><?php echo $cin_date; ?> </span></td>
+				</tr>
+				<tr>
+					<th><span >Check out Date</span></th>
+					<td><span ><?php echo $cout_date; ?> </span></td>
+				</tr>
