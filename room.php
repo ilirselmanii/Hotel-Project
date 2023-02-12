@@ -158,4 +158,75 @@ if(!isset($_SESSION["user"]))
                     </div>
                 </div>
                  
-                                 
+                <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            ROOMS INFORMATION
+                        </div>
+                        <div class="panel-body">
+								<!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <?php
+						$sql = "select * from room limit 0,10";
+						$re = mysqli_query($con,$sql)
+						?>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Room ID</th>
+                                            <th>Room Type</th>
+											<th>Bedding</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									
+									<?php
+										while($row= mysqli_fetch_array($re))
+										{
+												$id = $row['id'];
+											if($id % 2 == 0) 
+											{
+												echo "<tr class=odd gradeX>
+													<td>".$row['id']."</td>
+													<td>".$row['type']."</td>
+												   <th>".$row['bedding']."</th>
+												</tr>";
+											}
+											else
+											{
+												echo"<tr class=even gradeC>
+													<td>".$row['id']."</td>
+													<td>".$row['type']."</td>
+												   <th>".$row['bedding']."</th>
+												</tr>";
+											
+											}
+										}
+									?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                    
+                       
+                            
+							  
+							 
+							 
+							  
+							  
+							   
+                       </div>
+                        
+                    </div>
+                </div>
+                
+               
+            </div>
