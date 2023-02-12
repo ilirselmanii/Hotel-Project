@@ -100,3 +100,75 @@ table.inventory td:nth-child(4) { text-align: right; width: 12%; }
 table.inventory td:nth-child(5) { text-align: right; width: 12%; }
 
 /* table balance */
+table.balance th, table.balance td { width: 50%; }
+table.balance td { text-align: right; }
+
+/* aside /
+
+aside h1 { border: none; border-width: 0 0 1px; margin: 0 0 1em; }
+aside h1 { border-color: #999; border-bottom-style: solid; }
+
+/ javascript */
+
+.add, .cut
+{
+    border-width: 1px;
+    display: block;
+    font-size: .8rem;
+    padding: 0.25em 0.5em;
+    float: left;
+    text-align: center;
+    width: 0.6em;
+}
+
+.add, .cut
+{
+    background: #9AF;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    background-image: -moz-linear-gradient(#00ADEE 5%, #0078A5 100%);
+    background-image: -webkit-linear-gradient(#00ADEE 5%, #0078A5 100%);
+    border-radius: 0.5em;
+    border-color: #0076A3;
+    color: #FFF;
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: 0 -1px 2px rgba(0,0,0,0.333);
+}
+
+.add { margin: -2.5em 0 0; }
+
+.add:hover { background: #00ADEE; }
+
+.cut { opacity: 0; position: absolute; top: 0; left: -1.5em; }
+.cut { -webkit-transition: opacity 100ms ease-in; }
+
+tr:hover .cut { opacity: 1; }
+
+@media print {
+    * { -webkit-print-color-adjust: exact; }
+    html { background: none; padding: 0; }
+    body { box-shadow: none; margin: 0; }
+    span:empty { display: none; }
+    .add, .cut { display: none; }
+}
+
+@page { margin: 0; }
+        </style>
+
+    </head>
+    <body>
+
+
+
+
+    <?php
+    ob_start();
+    include ('db.php');
+
+    $pid = $_GET['pid'];
+
+
+
+    $sql ="select * from payment where id = '$pid' ";
+    $re = mysqli_query($con,$sql);
+    while($row=mysqli_fetch_array($re))
