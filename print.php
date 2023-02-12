@@ -249,4 +249,49 @@ tr:hover .cut { opacity: 1; }
 									{
 										$type_of_meal=$type_of_bed * 4;
 									}
+									?>
+        <header>
+            <h1>Invoice</h1>
+            <address >
+                <p>Hotel Amarica    ,</p>
+                <p>adem jashari Road,<br>prizren,<br>.</p>
+                <p> 65 222 44 55</p>
+            </address>
+            <span><img alt="" src="assets/img/sun.png"></span>
+        </header>
+        <article>
+            <h1>Recipient</h1>
+            <address >
+                <p><?php echo $title.$fname." ".$lname ?> <br></p>
+            </address>
+            <table class="meta">
+                <tr>
+                    <th><span >Invoice #</span></th>
+                    <td><span ><?php echo $id; ?></span></td>
+                </tr>
+                <tr>
+                    <th><span >Date</span></th>
+                    <td><span ><?php echo $cout; ?> </span></td>
+                </tr>
+
+            </table>
+            <table class="inventory">
+                <thead>
+                    <tr>
+                        <th><span >Item</span></th>
+                        <th><span >No of Days</span></th>
+                        <th><span >Rate</span></th>
+                        <th><span >Quantity</span></th>
+                        <th><span >Price</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span ><?php echo $troom; ?></span></td>
+                        <td><span ><?php echo $days; ?> </span></td>
+                        <td><span data-prefix>$</span><span ><?php  echo $type_of_room;?></span></td>
+                        <td><span ><?php echo $nroom;?> </span></td>
+                        <td><span data-prefix>$</span><span><?php echo $ttot; ?></span></td>
+                    </tr>
+                    <tr>
 	
