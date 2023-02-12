@@ -154,3 +154,56 @@ if(!isset($_SESSION["user"]))
                                     <tbody>
                                         
 									<?php
+                                    	$sql="select * from payment";
+										$re = mysqli_query($con,$sql);
+										while($row = mysqli_fetch_array($re))
+										{
+										
+											$id = $row['id'];
+											
+											if($id % 2 ==1 )
+											{
+												echo"<tr class='gradeC'>
+													<td>".$row['id']." </td>
+													<td>".$row['title']." ".$row['fname']." ".$row['lname']."</td>
+													<td>".$row['cin']."</td>
+													<td>".$row['cout']."</td>
+													
+													
+													<td>$".$row['ttot']."</td>
+													<td>$".$row['mepr']."</td>
+													<td>$".$row['btot']."</td>
+													<td>$".$row['fintot']."</td>
+													<td>$".$row['fintot']*10/100 ."</td>
+													</tr>";
+											}
+											else
+											{
+												echo"<tr class='gradeU'>
+													<td>".$row['id']." </td>
+													<td>".$row['title']." ".$row['fname']." ".$row['lname']."</td>
+													
+													<td>".$row['cin']."</td>
+													<td>".$row['cout']."</td>
+													
+													
+													<td>$".$row['ttot']."</td>
+													<td>$".$row['mepr']."</td>
+													<td>$".$row['btot']."</td>
+													<td>$".$row['fintot']."</td>
+													<td>$".$row['fintot']*10/100 ."</td>
+													</tr>";
+											
+											}
+										
+										}
+										
+									?>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
