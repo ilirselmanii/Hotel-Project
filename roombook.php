@@ -422,7 +422,81 @@ if(!isset($_SESSION["user"]))
 				
                 </div>
                 <!-- /. ROW  -->
-				
+				</div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+    <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
+
+
+</body>
+
+</html>
+
+<?php
+						if(isset($_POST['co']))
+						{	
+							$st = $_POST['conf'];
+							
+							 
+							
+							if($st=="Conform")
+							{
+									$urb = "UPDATE roombook SET `stat`='$st' WHERE id = '$id'";
+									
+								if($f1=="NO" )
+								{
+									echo "<script type='text/javascript'> alert('Sorry! Not Available Superior Room ')</script>";
+								}
+								else if($f2 =="NO")
+									{
+										echo "<script type='text/javascript'> alert('Sorry! Not Available Guest House')</script>";
+										
+									}
+									else if ($f3 == "NO")
+									{
+										echo "<script type='text/javascript'> alert('Sorry! Not Available Single Room')</script>";
+									}
+										else if($f4=="NO")
+										{
+										echo "<script type='text/javascript'> alert('Sorry! Not Available Deluxe Room')</script>";
+										}
+										
+										else if( mysqli_query($con,$urb))
+											{	
+												//echo "<script type='text/javascript'> alert('Guest Room booking is conform')</script>";
+												//echo "<script type='text/javascript'> window.location='home.php'</script>";
+												 $type_of_room = 0;       
+														if($troom=="Superior Room")
+														{
+															$type_of_room = 320;
+														
+														}
+														else if($troom=="Deluxe Room")
+														{
+															$type_of_room = 220;
+														}
+														else if($troom=="Guest House")
+														{
+															$type_of_room = 180;
+														}
+														else if($troom=="Single Room")
+														{
+															$type_of_room = 150;
+														}
 				
 				
 				
