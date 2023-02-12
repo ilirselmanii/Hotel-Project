@@ -96,5 +96,65 @@ $rre=mysqli_query($con,$rsql);
                         </h1>
                     </div>
                 </div> 
+                <div class="row">
+                
+                <div class="col-md-12 col-sm-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                           Delete room
+                        </div>
+                        <div class="panel-body">
+						<form name="form" method="post">
+                            <div class="form-group">
+                                            <label>Select the Room ID *</label>
+                                            <select name="id"  class="form-control" required>
+												<option value selected ></option>
+												<?php
+												while($rrow=mysqli_fetch_array($rre))
+												{
+												$value = $rrow['id'];
+												 echo '<option value="'.$value.'">'.$value.'</option>';
+												
+												}
+												?>
+                                                
+                                            </select>
+                              </div>
+							  
+								
+							 <input type="submit" name="del" value="Delete Room" class="btn btn-primary"> 
+							</form>
+							<?php
+							 include('db.php');
+							 
+							 if(isset($_POST['del']))
+							 {
+								$did = $_POST['id'];
+								
+								
+								$sql ="DELETE FROM room WHERE id = '$did'" ;
+								if(mysqli_query($con,$sql))
+								{
+								 echo '<script type="text/javascript">alert("Delete the Room") </script>' ;
+										
+										header("Location: roomdel.php");
+								}else {
+									echo '<script>alert("Sorry ! Check The System") </script>' ;
+								}
+							 }
+							
+							?>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                  
+           <?php
+						include ('db.php');
+						$sql = "select * from room";
+						$re = mysqli_query($con,$sql)
+				?>
+                <div class="row">
                  
                                  
