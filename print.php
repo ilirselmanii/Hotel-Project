@@ -1,3 +1,4 @@
+
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -97,3 +98,5 @@ table.inventory td:nth-child(2) { width: 38%; }
 table.inventory td:nth-child(3) { text-align: right; width: 12%; }
 table.inventory td:nth-child(4) { text-align: right; width: 12%; }
 table.inventory td:nth-child(5) { text-align: right; width: 12%; }
+
+/* table balance */
